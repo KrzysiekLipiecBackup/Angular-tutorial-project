@@ -1,0 +1,20 @@
+<p>Is favorited: {{isFavorite}}</p>
+<i class="bi"
+   [class.bi-star-fill]="isFavorite"
+   [class.bi-star]="!isFavorite"
+   style="font-size: 2rem; color: cornflowerblue;"
+   (click)="onClick()">
+</i>
+<p> {{ numberOfStars }}</p>
+
+<br>
+<input [(ngModel)]="movieTitle"/>
+<p>{{movieTitle | custom}}</p>
+
+<div *ngIf="payments.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+  List of payments
+</ng-template>
+<ng-template #noCourses>
+  No payments
+</ng-template>

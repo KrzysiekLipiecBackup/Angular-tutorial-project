@@ -1,0 +1,14 @@
+<p>Is favorited: {{isFavorite}}</p>
+<span
+  class="bi"
+  [ngClass]="{
+    'bi-star-fill': isFavorite,
+    'bi-star': !isFavorite
+  }"
+  style="font-size: 2rem; color: cornflowerblue;"
+  (click)="onClick()">
+</span>
+<span>{{ numberOfStars }}</span>
+
+<!--  [class.bi-star-fill]="isFavorite"
+      [class.bi-star]="!isFavorite" -->
