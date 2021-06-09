@@ -12,6 +12,7 @@ import { CustomPipe } from './custom.pipe';
 import { PanelComponent } from './panel/panel.component';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     CustomPipe,
     PanelComponent,
     ZippyComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div class="form-group">
+    <label for="paymentName">Payment Name</label>
+    <input required minlength="3" ngModel name="paymentName" #paymentName="ngModel" (change)="log(paymentName)" id="paymentName" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="paymentName.touched && !paymentName.valid">
+      <div *ngIf="paymentName.errors!.required">Payment name is required</div>
+      <div *ngIf="paymentName.errors!.minlength">Payment name must contain at least {{ paymentName.errors!.minlength.requiredLength}} characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="paymentAmount">Amount</label>
+    <input required minlength="3" ngModel name="paymentAmount" #paymentAmount="ngModel" (change)="log(paymentAmount)" id="paymentAmount" type="number" step="0.01" class="form-control">
+    <div class="alert alert-danger" *ngIf="paymentAmount.touched && !paymentAmount.valid">
+      <div *ngIf="paymentAmount.errors!.required">Payment amount is required</div>
+      <div *ngIf="paymentAmount.errors!.minlength">Payment amount must contain at least {{ paymentAmount.errors!.minlength.requiredLength}} characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="paymentTypeCategories">Type of payment</label>
+    <select ngModel name="paymentTypeCategories" id="paymentTypeCategories" class="form-control">
+      <option value=""></option>
+      <option *ngFor="let category of paymentTypeCategories" [value]="category.id">{{ category.name }}</option>
+      <!-- [ngValue]="method" -->
+    </select>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isImportant"> Important Payment
+    </label>
+  </div>
+  <p>
+    {{ f.value | json}}
+  </p>
+  <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
